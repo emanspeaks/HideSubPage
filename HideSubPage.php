@@ -1,9 +1,8 @@
-<?php // HidePrefix.php //
+<?php // HideSubPage.php //
 
 /*
 	------------------------------------------------------------------------------------------------
-	HidePrefix, a MediaWiki extension for hiding prefix in links and page titles.
-	Copyright (C) 2012 Van de Bugger.
+	HideSubPage, a MediaWiki extension for hiding the parent page titles in subpage titles.
 
 	This program is free software: you can redistribute it and/or modify it under the terms
 	of the GNU Affero General Public License as published by the Free Software Foundation,
@@ -22,31 +21,31 @@ if ( ! defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }; // if
 
-$extHidePrefixDir = defined( __DIR__ ) ? __DIR__ : dirname( __FILE__ ) ;
+$extHideSubPageDir = defined( __DIR__ ) ? __DIR__ : dirname( __FILE__ ) ;
 
 global $wgAutoloadClasses;
-$wgAutoloadClasses[ 'HidePrefix' ] = $extHidePrefixDir . '/HidePrefix.class.php';
+$wgAutoloadClasses[ 'HideSubPage' ] = $extHidePrefixDir . '/HideSubPage.class.php';
 
 global $wgHooks;
-$wgHooks[ 'LinkBegin'         ][] = 'HidePrefix::onLinkBegin';
-$wgHooks[ 'BeforePageDisplay' ][] = 'HidePrefix::onBeforePageDisplay';
+//$wgHooks[ 'LinkBegin'         ][] = 'HidePrefix::onLinkBegin';
+$wgHooks[ 'BeforePageDisplay' ][] = 'HideSubPage::onBeforePageDisplay';
 
-global $wgMessagesDirs;
-$wgMessagesDirs['HidePrefix'] = __DIR__ . '/i18n';
-global $wgExtensionMessagesFiles;
-$wgExtensionMessagesFiles[ 'HidePrefix' ] = $extHidePrefixDir . '/HidePrefix.i18n.php';
+//global $wgMessagesDirs;
+//$wgMessagesDirs['HidePrefix'] = __DIR__ . '/i18n';
+//global $wgExtensionMessagesFiles;
+//$wgExtensionMessagesFiles[ 'HidePrefix' ] = $extHidePrefixDir . '/HidePrefix.i18n.php';
 
 global $wgExtensionCredits;
 $wgExtensionCredits[ 'other' ][] = array(
 	'path'    => __FILE__,
-	'name'    => 'HidePrefix',
+	'name'    => 'HideSubPage',
 	'license' => 'AGPLv3',
-	'version' => '0.0.1+',
-	'author'  => array( '[https://www.mediawiki.org/wiki/User:Van_de_Bugger Van de Bugger]' ),
-	'url'     => 'https://www.mediawiki.org/wiki/Extension:HidePrefix',
-	'descriptionmsg'  => 'hideprefix-desc',
+	'version' => '0.1',
+	'author'  => 'Randy Eckman'
+	'url'     => 'https://github.com/emanspeaks/HideSubPage',
+	'descriptionmsg'  => 'Hides the parent page titles in subpage titles.',
 );
 
-unset( $extHidePrefixDir );
+unset( $extHideSubPageDir );
 
 // end of file //

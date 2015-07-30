@@ -1,9 +1,8 @@
-<?php // HidePrefix.class.php //
+<?php // HideSubPage.class.php //
 
 /*
 	------------------------------------------------------------------------------------------------
-	HidePrefix, a MediaWiki extension for hiding prefix in links and page titles.
-	Copyright (C) 2012 Van de Bugger.
+	HideSubPage, a MediaWiki extension for hiding the parent page titles in subpage titles.
 
 	This program is free software: you can redistribute it and/or modify it under the terms
 	of the GNU Affero General Public License as published by the Free Software Foundation,
@@ -22,9 +21,9 @@ if ( ! defined( 'MEDIAWIKI' ) ) {
 	die( 'Not an entry point.' );
 }; // if
 
-class HidePrefix {
+class HideSubPage {
 
-
+/*
 	// Hide prefix in links.
 	static public function onLinkBegin( $skin, $target, &$text, &$customAttribs, &$query, &$options, &$ret ) {
 		if ( isset( $text ) ) {
@@ -40,7 +39,7 @@ class HidePrefix {
 		}; // if
 		return true;
 	} // function onLinkBegin
-
+*/
 
 	// Hide prefix in page title.
 	static function onBeforePageDisplay( &$out, &$sk ) {
@@ -53,15 +52,15 @@ class HidePrefix {
 			return true;
 		}; // if
 
-		if ( $out->getPageTitle() == $title->getPrefixedText() ) {
-			$out->setPageTitle( $title->getText() );
-		}; // if
+		//if ( $out->getPageTitle() == $title->getPrefixedText() ) {
+			$out->setPageTitle( $title->getSubpageText() );
+		//}; // if
 
 		return true;
 
 	} // function onBeforePageDisplay
 
 
-} // class HidePrefix
+} // class HideSubPage
 
 // end of file //
