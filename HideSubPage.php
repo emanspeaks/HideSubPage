@@ -24,7 +24,7 @@ if ( ! defined( 'MEDIAWIKI' ) ) {
 $extHideSubPageDir = defined( __DIR__ ) ? __DIR__ : dirname( __FILE__ ) ;
 
 global $wgAutoloadClasses;
-$wgAutoloadClasses[ 'HideSubPage' ] = $extHidePrefixDir . '/HideSubPage.class.php';
+$wgAutoloadClasses[ 'HideSubPage' ] = $extHideSubPageDir . '/HideSubPage.class.php';
 
 global $wgHooks;
 //$wgHooks[ 'LinkBegin'         ][] = 'HidePrefix::onLinkBegin';
@@ -41,7 +41,7 @@ $wgExtensionCredits[ 'other' ][] = array(
 	'name'    => 'HideSubPage',
 	'license' => 'AGPLv3',
 	'version' => '0.1',
-	'author'  => 'Randy Eckman'
+	'author'  => 'Randy Eckman',
 	'url'     => 'https://github.com/emanspeaks/HideSubPage',
 	'descriptionmsg'  => 'Hides the parent page titles in subpage titles.',
 );
