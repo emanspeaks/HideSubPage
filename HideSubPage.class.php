@@ -52,9 +52,9 @@ class HideSubPage {
 			return true;
 		}; // if
 
-		//if ( $out->getPageTitle() == $title->getPrefixedText() ) {
+		if ( $title->getNamespace() == NS_MAIN ) {
 			$out->setPageTitle( $title->getSubpageText() );
-		//}; // if
+		}; // if
 
 		return true;
 

@@ -2,7 +2,7 @@
 
 == What? ==
 
-The HideSubPage extension hides the parent page titles in subpage titles.
+The HideSubPage extension hides the parent page titles in subpage titles for the Main namespace only.
 
 For example, page 'Help/FAQ' normally has the 'Help/FAQ' title. If this
 extension is enabled, visible page title will be just 'FAQ' without the 'Help/' title.
